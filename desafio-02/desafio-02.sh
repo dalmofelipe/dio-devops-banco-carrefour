@@ -1,14 +1,18 @@
 #!/bin/bash
 
-apt update
+echo "Atualizando sistema"
 
-apt upgrade
+apt-get update -y
+
+apt-get upgrade -y
+
+apt-get install apache2 unzip wget -y
 
 cd /tmp
 
-wget https://github.com/denilsonbonatti/linux-site-dio/archive/refs/heads/main.zip
+echo "Baixando aplicação"
 
-apt install unzip
+wget https://github.com/denilsonbonatti/linux-site-dio/archive/refs/heads/main.zip
 
 unzip main.zip
 
