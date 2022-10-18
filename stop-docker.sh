@@ -4,4 +4,4 @@ systemctl stop docker docker.socket containerd
 
 sleep 2
 
-systemctl stop docker docker.socket containerd
+systemctl status docker docker.socket containerd

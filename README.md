@@ -1,7 +1,5 @@
 ### DIO Cloud DevOps Experience Banco Carrefour
 
-<br>
-
 #### Desafios
 
 - Automatizar a criação de contas de usuários e grupos no Linux
