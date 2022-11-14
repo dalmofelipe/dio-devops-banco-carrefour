@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meuapp-deployment
+  labels:
+    app: meuapp
+  namespace: dio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: meuapp
+  template:
+    metadata:
+      labels:
+        app: meuapp
+    spec:
+      containers:
+      - name: meuapp
+        image: dalmofelipe/meuapp-dio:1.0.0
+        ports:
+        - containerPort: 80

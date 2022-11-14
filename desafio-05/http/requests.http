@@ -1,0 +1,28 @@
+@port=30000
+
+###
+GET http://localhost:{{port}} HTTP/1.1
+
+
+###
+POST http://localhost:{{port}}/index.php HTTP/1.1
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="nome"
+
+Luke
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="email"
+
+luke@email.com
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="comentario"
+
+noohhhhhhhhhh
+#------WebKitFormBoundary7MA4YWxkTrZu0gW
+#Content-Disposition: form-data; name="productImage"; filename="headphones.jpg"
+#Content-Type: image/jpeg
+
+#< ./headphones.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
