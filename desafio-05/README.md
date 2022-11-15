@@ -1,17 +1,34 @@
 ### DESAFIO 05 - Deploy de um App no K8S
 
-### Acessando K8S PODS
 
-```sh
+### APP Conteinerizado
 
-# Acessar o banco de dados no POD
-kubectl run -it --rm --image=mysql:5.6 --restart=Never -n dio mysql-client -- mysql -h mysql -p123456
+#### NETWORK
 
-# Abrir o 
-kubectl exec -it pod/meuapp-deployment-5cc65f9df5-hcvrg -n dio  -- /bin/sh
+    ```sh
+    docker network create dioapp-network
+    ```
 
-```
+#### CONTAINERS
 
+    ```sh
+    # frontend
+    docker run -dti -p 8081:80 --name dioapp-frontend --network dioapp-network dalmofelipe/dioapp-frontend:1.0.0
+
+    # backend
+    docker run -dti -p 8080:80 --name dioapp --network dioapp-network dalmofelipe/dioapp:1.0.0
+
+    # database
+    docker run -dti -p 3306:3306 --name dioapp-db --network dioapp-network dalmofelipe/dioapp-db:1.0.0
+    ```
+
+#### DATABASE
+
+Foi utililizado o MySQL 8, assim foi necessário algumas configurações em relação ao `caching_sha2_password`, através do script entrypoint `docker-entrypoint-initdb.d` pelo dockerfile e o script sql em `./sql/data.sql`.
+
+
+
+### K8s
 
 ### Tipos de K8S SERVICES
 

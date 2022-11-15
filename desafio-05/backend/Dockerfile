@@ -1,3 +1,5 @@
-FROM httpd:2.4-alpine3.16
-WORKDIR /usr/local/apache2/htdocs/
+FROM php:7.2-apache
+WORKDIR /var/www/html/
+RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 COPY ./src .
+EXPOSE 80
